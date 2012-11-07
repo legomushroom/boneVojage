@@ -413,23 +413,9 @@ window.boneVojage = ( points, options )->
 
 						console.log 'try bottom'
 
-						console.log ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + ( boneVojage_main.settings.$window.outerHeight() - boneVojage_main.settings.$window.scrollTop() ) )
-						console.log (( $el.offset().left - ( Math.abs( $el.outerWidth() - boneVojage_main.settings.$tooltip.outerWidth() )/2) ) )
+						g = boneVojage_main.O.getGSides $el
 
-						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + ( boneVojage_main.settings.$window.outerHeight() - boneVojage_main.settings.$window.scrollTop() ) ) and (
-							Math.abs( 
-								$el.offset().left - ( 
-									Math.abs( $el.outerWidth() - boneVojage_main.settings.$tooltip.outerWidth() )/2
-									) 
-							
-							) > boneVojage_main.settings.$window.scrollLeft() ) and (
-							
-									$el.offset().left + ( 
-									
-										Math.abs( $el.outerWidth() - boneVojage_main.settings.$tooltip.outerWidth() )/2
-									
-									) <  boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth()
-								)
+						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight() ) and ( g.g_left > boneVojage_main.settings.$window.scrollLeft() ) and ( g.g_right <  boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth() )
 
 						then return 'bottom'
 
@@ -439,10 +425,7 @@ window.boneVojage = ( points, options )->
 
 						console.log 'try bottom_left'
 
-						console.log ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + ( boneVojage_main.settings.$window.outerHeight() - boneVojage_main.settings.$window.scrollTop() ) )
-						console.log $el.offset().left - $el.outerWidth() <  boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth()
-
-						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + ( boneVojage_main.settings.$window.outerHeight() - boneVojage_main.settings.$window.scrollTop() ) ) and (
+						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight() ) and (
 							
 									$el.offset().left - boneVojage_main.settings.$tooltip.outerWidth() >  boneVojage_main.settings.$window.scrollLeft() # + boneVojage_main.settings.$window.outerWidth()
 								)
@@ -457,7 +440,7 @@ window.boneVojage = ( points, options )->
 
 						console.log $el.offset().left + $el.outerWidth()
 
-						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + ( boneVojage_main.settings.$window.outerHeight() - boneVojage_main.settings.$window.scrollTop() ) ) and (
+						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight() ) and (
 							
 									$el.offset().left + $el.outerWidth() + boneVojage_main.settings.$tooltip.outerWidth() <  boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth()
 								
@@ -551,7 +534,7 @@ window.boneVojage = ( points, options )->
 											# make position of bottom part of modal
 											boneVojage_main.settings.$modalBottom.css 
 																					position: norm.fixed
-																					height 	: $(document).outerHeight() - $el.offset().top  - $el.outerHeight() - (offset*2) + norm.normY
+																					height 	: $(document).outerHeight() - $el.offset().top  - $el.outerHeight() - offset + norm.normY
 																					width 	: $el.outerWidth() + (offset*2)
 																					left 	: $el.offset().left - offset - norm.normY
 																					top	 	: $el.offset().top + $el.outerHeight() + (offset) - norm.normH

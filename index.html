@@ -1,23 +1,24 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title id="main_title">Lego Mushroom starting template</title>
+        <title id="main_title">boneVojage JQuery plugin</title>
 
-        <meta id="description" name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..." />
-
+        <meta id="description" name="description" content="boneVojage JQuery plugin. Makes your first cross-website tour simple!" />
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 		<link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon"/>
-		<!-- css -->
+
         <link rel="stylesheet" href="css/main.css" type="text/css" media="screen"/>
-		<!-- end css -->
+        <link rel="stylesheet" href="bonevojage.min.css" type="text/css" media="screen"/>
+
         <meta http-equiv="Content-Language" content="en" />
     </head>
 
-    <body onload="prettyPrint();">
+    <body onload="prettyPrint();$('body').tipPop();">
 
         <h1>Bon Vojage!</h1>
-        <p style="text-align: center;">tiny JQuery plugin that makes your cross-website vojage simple!</p>
+        <p style="text-align: center;">tiny JQuery plugin that makes your cross-website tour simple!</p>
         </p>
 
         <div id="browsers">
@@ -44,7 +45,7 @@
 &lt;link rel="stylesheet" href="bonevojage.css" /&gt;<br />
 </pre>
         
-        <p>to initialize Vojage just call <b>boneVojage()</b> function and pass <b>array of JSON objects</b>, that represents desired stop points in website Vojage:</p>
+        <p>to initialize Vojage just call <b>boneVojage()</b> function and pass <b>array of JSON objects</b>, that represents desired stop points in cross-website tour:</p>
 
 <pre id="stop4" class="prettyprint lang-js">
 
@@ -70,10 +71,14 @@ boneVojage([
  
 </pre>
         
-        <p>That's it! Vojage is initialized with defaults parametrs, to override them, pass a <b>JSON object</b> of desired options as a second parameter (these are defaults):</p>
+        <p id="stop5">That's it! Vojage is initialized with default parametrs.</p>
+
+        <h2>Options:</h2>
+
+        <p> To override defaults, pass a <b>JSON object</b> with desired option as a second parameter (these are defaults):</p>
 
 
-<pre class="prettyprint lang-js">
+<pre id="stop6" class="prettyprint lang-js">
 
 boneVojage([
             {
@@ -131,39 +136,30 @@ boneVojage([
  
 </pre>
 <p>If you won't specify certain parameter, it will fallback to it's default property.</p>
-<p><b>delay</b> is time between points (including scroll and positioning) in milliseconds.</p>
-<p><b>offset</b> specifies distanse from stop-point element in px.  </p>
-<p><b>position</b> is a tooltip position relatively stop-point element. If position is <b>'best'</b> (default) boneVojage will find the best availible position in user's viewport, accordingly to <b>positionPriority</b> array from left to right <b>['bottom', 'top', 'left', 'right', 'bottom_left', 'bottom_right', 'top_left', 'top_right']</b> is defaults. If there is no such position, it will fallback to first left in positionPriority array.</p>
+<p><b>delay</b> is time between stop-points (including scroll time) in milliseconds.</p>
+<p><b>offset</b> specifies distance from stop-point element in px.  </p>
+<p><b>position</b> is a tooltip position relatively to stop-point element. If position is <b>'best'</b> (default) boneVojage will find the best availible position in user's viewport, accordingly to <b>positionPriority</b> array from left to right <b>['bottom', 'top', 'left', 'right', 'bottom_left', 'bottom_right', 'top_left', 'top_right']</b> is defaults. If there is no such position, it will fallback to first left in positionPriority array.</p>
 <p><b>map</b> is map switcher. If map is true, tooltip will have a map/progress bullets.</p>
-<p><b>buttons</b> specifies if next/prev control buttons is needed.</p>
-<p><b>button_next/button_prev</b> is a keyCodes of  keyboard buttons to launch next/prev stop-point accordingly.</p>
+<p><b>buttons</b> specifies if next/prev control buttons are needed.</p>
+<p><b>button_next/button_prev</b> is a keyCodes of keyboard keys to launch next/prev stop-point accordingly. Left and right arrows are defaults.</p>
 
 
 <a href="#" id="download2">download</a>
 <a href="#" id="fork2">fork</a>
 
 
-<!--
-         <div id="share"> 
-            <div class='pluso pluso-theme-light'><div class='pluso-more-container'>
-                <a class='pluso-more' href=''></a>
-                <ul class='pluso-counter-container'>
-                    <li></li>
-                    <li class='pluso-counter'></li>
-                    <li></li>
-                </ul>
+
+        <div id="share">
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_floating_style addthis_32x32_style" style="left:50px;top:50px;">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
             </div>
-            <a class='pluso-twitter'></a>
-            <a class='pluso-facebook'></a>
-            <a class='pluso-google'></a>
-            <a class='pluso-pinterest'></a>
-            <a class='pluso-email'></a>
-        </div>
-
-        <script type='text/javascript'>if(!window.pluso){pluso={version:'0.9.1',url:'http://share.pluso.ru/'};h=document.getElementsByTagName('head')[0];l=document.createElement('link');l.href=pluso.url+'pluso.css';l.type='text/css';l.rel='stylesheet';s=document.createElement('script');s.src=pluso.url+'pluso.js';s.charset='UTF-8';h.appendChild(l);h.appendChild(s)}</script>
-
-                
-                <form id="paypal_donation" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+            <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fb4033d0a07d6d5"></script><form id="paypal_donation" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                   <input type="hidden" name="cmd" value="_donations">
                   <input type="hidden" name="business" value="tasolomka@gmail.com">
                   <input type="hidden" name="lc" value="US">
@@ -174,7 +170,7 @@ boneVojage([
                   <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                 </form>
             </div>
- -->
+ 
         <a id ="lego" href="http://legomushroom.com" title="Lego Mushroom">lego m</a>
         <a id="example" href="#" title="look what I can">example</a>
         <a id="download" href="https://github.com/sol0mka/TipPop/zipball/master" title="1.5Kb gzipped">download</a>
@@ -191,7 +187,20 @@ boneVojage([
         <script type="text/javascript" src="js/scripts/lib/jquery-1.8.2.min.js"></script>
         <script type="text/javascript" src="js/scripts/main_c.js"></script>
 
-        <script type="text/javascript" src="js/jquery.bonevojage.js"></script>
+
+
+
+
+
+
+        <script type="text/javascript" src="jquery.bonevojage.min.js"></script>
+
+
+
+
+
+
+
 
         <script type="text/javascript">
 
@@ -214,11 +223,33 @@ boneVojage([
                                     text     : 'Run boneVojage() function and specify stop-points of your Vojage by passing array of JSON objects as a first parameter.'
                                 },
                                 {
-                                    selector : 'pre#stop4',
-                                    text     : 'Run boneVojage() function and specify stop-points of your Vojage by passing array of JSON objects as a first parameter.'
+                                    selector : 'p#stop5',
+                                    text     : 'That\'s it! This example vojage runs with default parameters too.'
                                 },
-
-
+                                {
+                                    selector : 'pre#stop6',
+                                    text     : 'Here you can read about boneVojage options.'
+                                },
+                                {
+                                    selector : '#browsers',
+                                    text     : 'These are supported browsers!'
+                                },
+                                {
+                                    selector : 'a#download',
+                                    text     : 'Here you can download bone Vojage source. Pay attention, I work fine with fixed elements too!'
+                                },
+                                {
+                                    selector : 'a#fork',
+                                    text     : 'There is a lot more to do! Git me on fork!'
+                                },
+                                {
+                                    selector : 'a#lego',
+                                    text     : 'Here I\'m floating!'
+                                },
+                                {
+                                    selector : 'div.addthis_toolbox',
+                                    text     : 'Don\'t forget to share! Thank you, our Vojage is over, we are leaving you where you were before our Vojage started! Just close this window to finish.'
+                                }
                     ]);
 
                     e.preventDefault();
@@ -227,6 +258,7 @@ boneVojage([
         </script>
 
         <script type="text/javascript" src="js/scripts/plugins/prettify.js"></script>
+        <script type="text/javascript" src="js/scripts/plugins/jquery.tippop.min.js"></script>
 
 		<!-- end js -->
 
