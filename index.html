@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title id="main_title">Lego Mushroom starting template</title>
+
+        <meta id="description" name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..." />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon"/>
+		<!-- css -->
+        <link rel="stylesheet" href="css/main.css" type="text/css" media="screen"/>
+		<!-- end css -->
+        <meta http-equiv="Content-Language" content="en" />
+    </head>
+
+    <body onload="prettyPrint();">
+
+        <h1>Bon Vojage!</h1>
+        <p style="text-align: center;">tiny JQuery plugin that makes your cross-website vojage simple!</p>
+        </p>
+
+        <div id="browsers">
+            <div id="browser" title="3+">1</div>
+            <div id="browser" title="3+">2</div>
+            <div id="browser" title="10+">3</div>
+            <div id="browser" title="4+">4</div>
+            <div id="browser" title="6+">5</div>
+        </div>
+
+
+        <h2>Usage:</h2>
+
+        
+        <p> Just <a href="https://github.com/sol0mka/TipPop/zipball/master" title="1.5kb gzipped">download</a>, unzip and include boneVojage.js after JQuery source in your html markup:</p>
+        
+<pre id="stop2" class="prettyprint lang-html linenums:4">
+&lt;script type="text/javascript" src="jquery.min.js"&gt;&lt;/script&gt;<br />
+&lt;script type="text/javascript" src="jquery.bonevojage.min.js"&gt;&lt;/script&gt;<br />
+</pre>
+        <p>and CSS styles file into a &lt;head&gt; section:</p>
+
+<pre id="stop3" class="prettyprint lang-html">
+&lt;link rel="stylesheet" href="bonevojage.css" /&gt;<br />
+</pre>
+        
+        <p>to initialize Vojage just call <b>boneVojage()</b> function and pass <b>array of JSON objects</b>, that represents desired stop points in website Vojage:</p>
+
+<pre id="stop4" class="prettyprint lang-js">
+
+boneVojage([
+            {
+                // CSS selector of desired stop element
+                selector: 'a#some_id_or_class'           
+                
+                // text about stop point
+                text    : 'You can log in here!'    
+
+            },
+            {
+                // CSS selector of desired stop element
+                selector: 'a#another_id_or_class'           
+                
+                // text about stop point
+                text    : 'You can download it here!'    
+
+            }
+]);
+
+ 
+</pre>
+        
+        <p>That's it! Vojage is initialized with defaults parametrs, to override them, pass a <b>JSON object</b> of desired options as a second parameter (these are defaults):</p>
+
+
+<pre class="prettyprint lang-js">
+
+boneVojage([
+            {
+                // CSS selector of desired stop element
+                selector: 'a#some_id_or_class'           
+                
+                // text about stop point
+                text    : 'You can log in here!'    
+
+            },
+            {
+                // CSS selector of desired stop element
+                selector: 'a#another_id_or_class'           
+                
+                // text about stop point
+                text    : 'You can download it here!'    
+
+            }],
+
+            {
+                // delay between points
+                delay   : 1000
+
+                // offset from stop-point element
+                offset  : 4
+
+                // position of tooltip element
+                position    : 'best'
+
+                // show map/progress of Vojage 
+                map         : true
+                
+                // need control buttons (next/prev) ?
+                buttons     : true
+
+                // next key
+                button_next : 39
+
+                // previuos key
+                button_prev : 37
+
+                // position priority array (if position is 'best' )
+                positionPriority : [ 
+                                     'bottom',
+                                     'top',
+                                     'left', 
+                                     'right',
+                                     'bottom_left',
+                                     'bottom_right',
+                                     'top_left',
+                                     'top_right'
+                                    ]
+            });
+
+ 
+</pre>
+<p>If you won't specify certain parameter, it will fallback to it's default property.</p>
+<p><b>delay</b> is time between points (including scroll and positioning) in milliseconds.</p>
+<p><b>offset</b> specifies distanse from stop-point element in px.  </p>
+<p><b>position</b> is a tooltip position relatively stop-point element. If position is <b>'best'</b> (default) boneVojage will find the best availible position in user's viewport, accordingly to <b>positionPriority</b> array from left to right <b>['bottom', 'top', 'left', 'right', 'bottom_left', 'bottom_right', 'top_left', 'top_right']</b> is defaults. If there is no such position, it will fallback to first left in positionPriority array.</p>
+<p><b>map</b> is map switcher. If map is true, tooltip will have a map/progress bullets.</p>
+<p><b>buttons</b> specifies if next/prev control buttons is needed.</p>
+<p><b>button_next/button_prev</b> is a keyCodes of  keyboard buttons to launch next/prev stop-point accordingly.</p>
+
+
+<a href="#" id="download2">download</a>
+<a href="#" id="fork2">fork</a>
+
+
+<!--
+         <div id="share"> 
+            <div class='pluso pluso-theme-light'><div class='pluso-more-container'>
+                <a class='pluso-more' href=''></a>
+                <ul class='pluso-counter-container'>
+                    <li></li>
+                    <li class='pluso-counter'></li>
+                    <li></li>
+                </ul>
+            </div>
+            <a class='pluso-twitter'></a>
+            <a class='pluso-facebook'></a>
+            <a class='pluso-google'></a>
+            <a class='pluso-pinterest'></a>
+            <a class='pluso-email'></a>
+        </div>
+
+        <script type='text/javascript'>if(!window.pluso){pluso={version:'0.9.1',url:'http://share.pluso.ru/'};h=document.getElementsByTagName('head')[0];l=document.createElement('link');l.href=pluso.url+'pluso.css';l.type='text/css';l.rel='stylesheet';s=document.createElement('script');s.src=pluso.url+'pluso.js';s.charset='UTF-8';h.appendChild(l);h.appendChild(s)}</script>
+
+                
+                <form id="paypal_donation" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                  <input type="hidden" name="cmd" value="_donations">
+                  <input type="hidden" name="business" value="tasolomka@gmail.com">
+                  <input type="hidden" name="lc" value="US">
+                  <input type="hidden" name="item_name" value="shade your pixels">
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>
+ -->
+        <a id ="lego" href="http://legomushroom.com" title="Lego Mushroom">lego m</a>
+        <a id="example" href="#" title="look what I can">example</a>
+        <a id="download" href="https://github.com/sol0mka/TipPop/zipball/master" title="1.5Kb gzipped">download</a>
+        <a id="fork" href="https://github.com/sol0mka/TipPop">fork</a>
+        
+        <!-- <a id ="bottom_right" href="#" title="">there!</a>
+        <a id ="bottom_left" href="#" title="">hello</a> -->
+        
+        <div id="debug">
+            <div id="notification_wrap"></div>
+            <div id="console"></div>    
+        </div>
+		
+        <script type="text/javascript" src="js/scripts/lib/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/scripts/main_c.js"></script>
+
+        <script type="text/javascript" src="js/jquery.bonevojage.js"></script>
+
+        <script type="text/javascript">
+
+                $('a#example').on('click',function(e){
+                    boneVojage([
+                                {
+                                    selector : 'h1',
+                                    text     : 'Hello! I\'m bone Vojage Jquery plugin, seat you belts and enjoy! (left and right arrows are working!)'
+                                },
+                                {
+                                    selector : 'pre#stop2',
+                                    text     : 'Add my source file into your HTML markup, after JQuery'
+                                },
+                                {
+                                    selector : 'pre#stop3',
+                                    text     : 'Then link CSS file, to your head section'
+                                },
+                                {
+                                    selector : 'pre#stop4',
+                                    text     : 'Run boneVojage() function and specify stop-points of your Vojage by passing array of JSON objects as a first parameter.'
+                                },
+                                {
+                                    selector : 'pre#stop4',
+                                    text     : 'Run boneVojage() function and specify stop-points of your Vojage by passing array of JSON objects as a first parameter.'
+                                },
+
+
+                    ]);
+
+                    e.preventDefault();
+                });
+
+        </script>
+
+        <script type="text/javascript" src="js/scripts/plugins/prettify.js"></script>
+
+		<!-- end js -->
+
+<!-- liveReload -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+    </body>
+</html>
