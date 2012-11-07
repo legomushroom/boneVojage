@@ -215,7 +215,7 @@ window.boneVojage = ( points, options )->
 
 				makeTooltipPosition:( pos, $el, offset )->
 
-					console.log "pos: #{pos} $el: #{$el} offset: #{offset}"
+					# console.log "pos: #{pos} $el: #{$el} offset: #{offset}"
 
 					norm = boneVojage_main.O.getPosition $el
 
@@ -233,7 +233,7 @@ window.boneVojage = ( points, options )->
 
 						when 'left'
 
-							console.log 'left'
+							# console.log 'left'
 
 							boneVojage_main.settings.$tooltip.css 
 										
@@ -242,7 +242,7 @@ window.boneVojage = ( points, options )->
 										left: $el.offset().left - (boneVojage_main.settings.$tooltip.outerWidth()) - offset - norm.normY
 
 						when 'right'
-							console.log 'right'
+							# console.log 'right'
 
 							boneVojage_main.settings.$tooltip.css 
 										
@@ -251,7 +251,7 @@ window.boneVojage = ( points, options )->
 										left: $el.offset().left + $el.outerWidth() + offset - norm.normY
 
 						when 'top'
-							console.log 'top'
+							# console.log 'top'
 
 							boneVojage_main.settings.$tooltip.css 
 										
@@ -260,7 +260,7 @@ window.boneVojage = ( points, options )->
 										left: $el.offset().left + ( $el.outerWidth()/2 ) - (boneVojage_main.settings.$tooltip.outerWidth()/2) - norm.normY
 
 						when 'top_left'
-							console.log 'top-left'
+							# console.log 'top-left'
 
 							boneVojage_main.settings.$tooltip.css 
 										
@@ -269,7 +269,7 @@ window.boneVojage = ( points, options )->
 										left: $el.offset().left - boneVojage_main.settings.$tooltip.outerWidth() - norm.normY
 
 						when 'top_right'
-							console.log 'top-right'
+							# console.log 'top-right'
 
 							boneVojage_main.settings.$tooltip.css 
 										
@@ -279,7 +279,7 @@ window.boneVojage = ( points, options )->
 
 						when 'bottom'
 
-							console.log 'bottom'
+							# console.log 'bottom'
 
 							boneVojage_main.settings.$tooltip.css 
 								
@@ -289,7 +289,7 @@ window.boneVojage = ( points, options )->
 	
 						when 'bottom_right'
 
-							console.log 'bottom-right'
+							# console.log 'bottom-right'
 
 							boneVojage_main.settings.$tooltip.css 
 								
@@ -299,7 +299,7 @@ window.boneVojage = ( points, options )->
 
 						when 'bottom_left'
 
-							console.log 'bottom-left'
+							# console.log 'bottom-left'
 
 							boneVojage_main.settings.$tooltip.css 
 								
@@ -327,7 +327,7 @@ window.boneVojage = ( points, options )->
 
 					left:( $el, offset )->
 
-						console.log 'try left'
+						# console.log 'try left'
 
 						if ( $el.offset().left - boneVojage_main.settings.$tooltip.outerWidth() ) - offset > boneVojage_main.settings.$window.scrollLeft() and (
 							( 
@@ -351,7 +351,7 @@ window.boneVojage = ( points, options )->
 
 					right:( $el, offset )->
 
-						console.log 'try right'
+						# console.log 'try right'
 
 						if $el.offset().left + $el.outerWidth() + offset < boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth() and (
 							( 
@@ -374,7 +374,7 @@ window.boneVojage = ( points, options )->
 
 					top:( $el, offset )->
 
-						console.log 'try top'
+						# console.log 'try top'
 
 						g = boneVojage_main.O.getGSides $el
 
@@ -387,7 +387,7 @@ window.boneVojage = ( points, options )->
 
 					top_left:( $el, offset )->
 
-						console.log 'try top_left'
+						# console.log 'try top_left'
 
 						if $el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - offset - boneVojage_main.settings.$tooltip.outerHeight() > boneVojage_main.settings.$window.scrollTop() and (
 
@@ -399,7 +399,7 @@ window.boneVojage = ( points, options )->
 
 					top_right:( $el, offset )->
 
-						console.log 'try top_right'
+						# console.log 'try top_right'
 
 						if $el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - offset - boneVojage_main.settings.$tooltip.outerHeight() > boneVojage_main.settings.$window.scrollTop() and (
 
@@ -411,8 +411,6 @@ window.boneVojage = ( points, options )->
 
 					bottom:( $el, offset )->
 
-						console.log 'try bottom'
-
 						g = boneVojage_main.O.getGSides $el
 
 						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight() ) and ( g.g_left > boneVojage_main.settings.$window.scrollLeft() ) and ( g.g_right <  boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth() )
@@ -422,8 +420,6 @@ window.boneVojage = ( points, options )->
 						else return 'best'
 
 					bottom_left:( $el, offset )->
-
-						console.log 'try bottom_left'
 
 						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight() ) and (
 							
@@ -435,10 +431,6 @@ window.boneVojage = ( points, options )->
 						else return 'best'
 
 					bottom_right:( $el, offset )->
-
-						console.log 'try bottom_right'
-
-						console.log $el.offset().left + $el.outerWidth()
 
 						if ( $el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight() ) < ( boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight() ) and (
 							
@@ -498,7 +490,7 @@ window.boneVojage = ( points, options )->
 
 				makeModalPosition:( element )->
 
-					console.time 'make position takes: '
+					# console.time 'make position takes: '
 
 					$el = $(element)
 
@@ -558,7 +550,7 @@ window.boneVojage = ( points, options )->
 
 											boneVojage_main.O.makeTooltipPosition boneVojage_main.options.position, $el, offset
 
-											console.timeEnd 'make position takes: '
+											# console.timeEnd 'make position takes: '
 
 					return dfr.promise()
 

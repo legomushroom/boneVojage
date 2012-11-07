@@ -121,7 +121,6 @@
         },
         makeTooltipPosition: function(pos, $el, offset) {
           var i, norm;
-          console.log("pos: " + pos + " $el: " + $el + " offset: " + offset);
           norm = boneVojage_main.O.getPosition($el);
           boneVojage_main.settings.$tooltip.css({
             'position': norm.fixed
@@ -132,56 +131,48 @@
           }
           switch (pos) {
             case 'left':
-              console.log('left');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top - (boneVojage_main.settings.$tooltip.outerHeight() / 2) + ($el.outerHeight() / 2) - norm.normH,
                 left: $el.offset().left - (boneVojage_main.settings.$tooltip.outerWidth()) - offset - norm.normY
               });
               break;
             case 'right':
-              console.log('right');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top - (boneVojage_main.settings.$tooltip.outerHeight() / 2) + ($el.outerHeight() / 2) - norm.normH,
                 left: $el.offset().left + $el.outerWidth() + offset - norm.normY
               });
               break;
             case 'top':
-              console.log('top');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - offset - 7 - norm.normH,
                 left: $el.offset().left + ($el.outerWidth() / 2) - (boneVojage_main.settings.$tooltip.outerWidth() / 2) - norm.normY
               });
               break;
             case 'top_left':
-              console.log('top-left');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - 7 - norm.normH,
                 left: $el.offset().left - boneVojage_main.settings.$tooltip.outerWidth() - norm.normY
               });
               break;
             case 'top_right':
-              console.log('top-right');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - 7 - norm.normH,
                 left: $el.offset().left + $el.outerWidth() - norm.normY
               });
               break;
             case 'bottom':
-              console.log('bottom');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top + $el.outerHeight() + offset - norm.normH,
                 left: $el.offset().left + ($el.outerWidth() / 2) - (boneVojage_main.settings.$tooltip.outerWidth() / 2) - norm.normY
               });
               break;
             case 'bottom_right':
-              console.log('bottom-right');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top + $el.outerHeight() - norm.normH,
                 left: $el.outerWidth() + $el.offset().left - norm.normY
               });
               break;
             case 'bottom_left':
-              console.log('bottom-left');
               boneVojage_main.settings.$tooltip.css({
                 top: $el.offset().top + $el.outerHeight() - norm.normH,
                 left: $el.offset().left - boneVojage_main.settings.$tooltip.outerWidth() - norm.normY
@@ -199,7 +190,6 @@
         },
         tryPosition: {
           left: function($el, offset) {
-            console.log('try left');
             if (($el.offset().left - boneVojage_main.settings.$tooltip.outerWidth()) - offset > boneVojage_main.settings.$window.scrollLeft() && (($el.offset().top - (Math.abs($el.outerHeight() - boneVojage_main.settings.$tooltip.outerHeight()) / 2)) > boneVojage_main.settings.$window.scrollTop()) && ($el.offset().top + (Math.abs($el.outerHeight() - boneVojage_main.settings.$tooltip.outerHeight()) / 2) < boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight())) {
               return 'left';
             } else {
@@ -207,7 +197,6 @@
             }
           },
           right: function($el, offset) {
-            console.log('try right');
             if ($el.offset().left + $el.outerWidth() + offset < boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth() && (($el.offset().top - (Math.abs($el.outerHeight() - boneVojage_main.settings.$tooltip.outerHeight()) / 2)) > boneVojage_main.settings.$window.scrollTop()) && ($el.offset().top + (Math.abs($el.outerHeight() - boneVojage_main.settings.$tooltip.outerHeight()) / 2) < boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight())) {
               return 'right';
             } else {
@@ -216,7 +205,6 @@
           },
           top: function($el, offset) {
             var g;
-            console.log('try top');
             g = boneVojage_main.O.getGSides($el);
             if ($el.offset().top - offset - boneVojage_main.settings.$tooltip.outerHeight() > boneVojage_main.settings.$window.scrollTop() && (g.g_left > boneVojage_main.settings.$window.scrollLeft()) && (g.g_right < boneVojage_main.settings.$window.outerWidth() + boneVojage_main.settings.$window.scrollLeft())) {
               return 'top';
@@ -225,7 +213,6 @@
             }
           },
           top_left: function($el, offset) {
-            console.log('try top_left');
             if ($el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - offset - boneVojage_main.settings.$tooltip.outerHeight() > boneVojage_main.settings.$window.scrollTop() && (($el.offset().left - boneVojage_main.settings.$tooltip.outerWidth()) > boneVojage_main.settings.$window.scrollLeft())) {
               return 'top_left';
             } else {
@@ -233,7 +220,6 @@
             }
           },
           top_right: function($el, offset) {
-            console.log('try top_right');
             if ($el.offset().top - boneVojage_main.settings.$tooltip.outerHeight() - offset - boneVojage_main.settings.$tooltip.outerHeight() > boneVojage_main.settings.$window.scrollTop() && (($el.offset().left + $el.outerWidth() + boneVojage_main.settings.$tooltip.outerWidth()) < boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth())) {
               return 'top_right';
             } else {
@@ -242,7 +228,6 @@
           },
           bottom: function($el, offset) {
             var g;
-            console.log('try bottom');
             g = boneVojage_main.O.getGSides($el);
             if (($el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight()) < (boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight()) && (g.g_left > boneVojage_main.settings.$window.scrollLeft()) && (g.g_right < boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth())) {
               return 'bottom';
@@ -251,7 +236,6 @@
             }
           },
           bottom_left: function($el, offset) {
-            console.log('try bottom_left');
             if (($el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight()) < (boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight()) && ($el.offset().left - boneVojage_main.settings.$tooltip.outerWidth() > boneVojage_main.settings.$window.scrollLeft())) {
               return 'bottom_left';
             } else {
@@ -259,8 +243,6 @@
             }
           },
           bottom_right: function($el, offset) {
-            console.log('try bottom_right');
-            console.log($el.offset().left + $el.outerWidth());
             if (($el.offset().top + $el.outerHeight() + offset + boneVojage_main.settings.$tooltip.outerHeight()) < (boneVojage_main.settings.$window.scrollTop() + boneVojage_main.settings.$window.outerHeight()) && ($el.offset().left + $el.outerWidth() + boneVojage_main.settings.$tooltip.outerWidth() < boneVojage_main.settings.$window.scrollLeft() + boneVojage_main.settings.$window.outerWidth())) {
               return 'bottom_right';
             } else {
@@ -316,7 +298,6 @@
         },
         makeModalPosition: function(element) {
           var $el, cnt, dfr, norm, offset;
-          console.time('make position takes: ');
           $el = $(element);
           norm = boneVojage_main.O.getPosition($el);
           boneVojage_main.O.hideModal();
@@ -356,8 +337,7 @@
               });
               boneVojage_main.settings.$tooltip.find('#text').text(boneVojage_main.settings.points[boneVojage_main.settings.currPoint].text);
               boneVojage_main.O.addControls();
-              boneVojage_main.O.makeTooltipPosition(boneVojage_main.options.position, $el, offset);
-              return console.timeEnd('make position takes: ');
+              return boneVojage_main.O.makeTooltipPosition(boneVojage_main.options.position, $el, offset);
             }
           });
           return dfr.promise();

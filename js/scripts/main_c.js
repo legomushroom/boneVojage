@@ -25,17 +25,11 @@
     },
     o: {
       init: function() {
-        console.log(main.m.debug);
         main.makeProfile('init');
         main.v.console('init ok');
         main.v.console('init warning', 'warning');
         main.v.console('init alert', 'alert');
         main.e.listen();
-        main.v.showNoty({
-          text: 'ok, i\'m average long message, you got me?',
-          type: 'ok',
-          hide: 6000
-        });
         return main.makeProfileEnd('init');
       }
     },
@@ -73,16 +67,8 @@
         return main.makeProfileEnd('listen');
       }
     },
-    makeProfile: function(name, type) {
-      console["group" + (type || '')](name);
-      console.profile(name);
-      return console.time("" + name + " takes");
-    },
-    makeProfileEnd: function(name) {
-      console.timeEnd("" + name + " takes");
-      console.profileEnd(name);
-      return console.groupEnd(name);
-    }
+    makeProfile: function(name, type) {},
+    makeProfileEnd: function(name) {}
   };
 
   main.o.init();

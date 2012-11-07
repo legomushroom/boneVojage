@@ -34,7 +34,7 @@
 			init: ()->
 				#console log global debug object
 				#consoles to zero-level console
-				console.log main.m.debug
+				# console.log main.m.debug
 				main.makeProfile('init');
 				#----------body------------
 				main.v.console 'init ok' 
@@ -45,11 +45,11 @@
 				#listen to global events
 				main.e.listen()
 
-				main.v.showNoty 
+				# main.v.showNoty 
 
-							text : 'ok, i\'m average long message, you got me?'
-							type : 'ok'
-							hide : 6000
+				# 			text : 'ok, i\'m average long message, you got me?'
+				# 			type : 'ok'
+				# 			hide : 6000
 
 				#----------body ends-------
 				main.makeProfileEnd('init');
@@ -109,14 +109,14 @@
 
 		# // generate profile end
 		makeProfile : (name,type)->
-			console["group#{type||''}"] name
-			console.profile name
-			console.time ("#{name} takes")
+			# console["group#{type||''}"] name
+			# console.profile name
+			# console.time ("#{name} takes")
 		# 	// generate console.profile end
 		makeProfileEnd :(name)->
-			console.timeEnd ("#{name} takes")
-			console.profileEnd name
-			console.groupEnd name
+			# console.timeEnd ("#{name} takes")
+			# console.profileEnd name
+			# console.groupEnd name
 	}
 
 	# init main class
