@@ -25,7 +25,8 @@
         button_next: 39,
         button_prev: 37,
         map: true,
-        buttons: true
+        buttons: true,
+        onNavigation: false
       },
       constructor: function(points, options) {
         var buttons,
@@ -92,21 +93,30 @@
           var _this = this;
           boneVojage_main.settings.tryPositionCount = 0;
           boneVojage_main.settings.currPoint = $(this).index();
-          return boneVojage_main.O.makeModalPosition(boneVojage_main.settings.points[boneVojage_main.settings.currPoint].selector, boneVojage_main.options.offset).done(function() {
+          var pos = boneVojage_main.settings.currPoint;
+          if(boneVojage_main.options.onNavigation !== false)
+            boneVojage_main.options.onNavigation(pos+1);
+          return boneVojage_main.O.makeModalPosition(boneVojage_main.settings.points[pos].selector, boneVojage_main.options.offset).done(function() {
             return boneVojage_main.O.showModal();
           });
         },
         next: function() {
           var _this = this;
           boneVojage_main.settings.tryPositionCount = 0;
-          return boneVojage_main.O.makeModalPosition(boneVojage_main.settings.points[++boneVojage_main.settings.currPoint].selector, boneVojage_main.options.offset).done(function() {
+          var pos = ++boneVojage_main.settings.currPoint;
+          if(boneVojage_main.options.onNavigation !== false)
+            boneVojage_main.options.onNavigation(pos+1);
+          return boneVojage_main.O.makeModalPosition(boneVojage_main.settings.points[pos].selector, boneVojage_main.options.offset).done(function() {
             return boneVojage_main.O.showModal();
           });
         },
         prev: function() {
           var _this = this;
           boneVojage_main.settings.tryPositionCount = 0;
-          return boneVojage_main.O.makeModalPosition(boneVojage_main.settings.points[--boneVojage_main.settings.currPoint].selector, boneVojage_main.options.offset).done(function() {
+          var pos = --boneVojage_main.settings.currPoint;
+          if(boneVojage_main.options.onNavigation !== false)
+            boneVojage_main.options.onNavigation(pos+1);
+          return boneVojage_main.O.makeModalPosition(boneVojage_main.settings.points[pos].selector, boneVojage_main.options.offset).done(function() {
             return boneVojage_main.O.showModal();
           });
         },
