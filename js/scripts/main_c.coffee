@@ -9,7 +9,6 @@
 
 	window.main = {
 
-		# MVC MOVE model
 		m : 
 			
 			#vars to debug in console here
@@ -29,7 +28,6 @@
 				main.makeProfile 		'fetchPost','Collapsed' 
 				main.makeProfileEnd 	'fetchPost','Collapsed'
 
-		# MVC MOVE operations
 		o :
 			init: ()->
 				#console log global debug object
@@ -89,7 +87,6 @@
 
 
 
-		# MVC MOVE events
 		e : 
 			listen: ()->
 				main.makeProfile 		'listen','Collapsed'
